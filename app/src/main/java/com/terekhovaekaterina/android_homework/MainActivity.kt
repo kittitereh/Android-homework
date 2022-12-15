@@ -1,29 +1,71 @@
 package com.terekhovaekaterina.android_homework
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.view.AbsSavedState
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 const val OTHER_NAME: Int = 1
 
 class MainActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?){
+    companion object {
+        private val COUNTER_KEY = "COUNTER_KEY"
+    }
+
+    private var counter: Int = 0
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        OTHER_NAME
+
+        val button: Button? = findViewById<Button>(R.id.registrationButton)
+        button?.setOnClickListener {
+            Log.i("MainActivity", "Button 'Enter' was clicked")
+
+            val intent = Intent(this, RegistrationActivity::class.java)
+            startActivity(intent)
+
+        }
+
+    }
+
+//    private fun add(){
+//        counter += 1
+//        updateCounter()
+//    }
+//
+//    private fun updateCounter(){
+//        findViewById<TextView>(R.id.mainCounterText)?.apply{
+//                text = counter.toString()
+//        }
+//    }
+
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        outState.putInt(COUNTER_KEY, counter)
+        super.onSaveInstanceState(outState, outPersistentState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        savedInstanceState.getInt(COUNTER_KEY, 0)
+        // updateCounter()
+        super.onRestoreInstanceState(savedInstanceState)
     }
 }
 
 
+
 abstract class BaseActivity : AppCompatActivity(){
 
-    val tag :String
+    private val tag :String
         get() = this::class.qualifiedName?: ""
 
     override fun onCreate(savedInstanceState: Bundle?){
-        Log.d(tag,"onCreate")
+        Log.d(tag,"onCreate $savedInstanceState")
         super.onCreate(savedInstanceState)
     }
 
