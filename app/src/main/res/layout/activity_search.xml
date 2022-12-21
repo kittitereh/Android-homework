@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:id="@+id/search_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="left"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/search_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="Поиск"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <ScrollView
+        android:id="@+id/search_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/search_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/search_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:text="Тип"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/search_type_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_type">
+
+                <RadioButton
+                    android:id="@+id/search_type_group_film"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Фильм" />
+
+                <RadioButton
+                    android:id="@+id/search_type_group_show"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Тв шоу" />
+
+                <RadioButton
+                    android:id="@+id/search_type_group_series"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Сериал" />
+                <RadioButton
+                    android:id="@+id/search_type_group_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Все" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/search_rating_type"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:paddingStart="20dp"
+                android:text="Рейтинг"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_type_group" />
+
+            <TextView
+                android:id="@+id/search_rating_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:text="от"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_rating_type" />
+
+            <TextView
+                android:id="@+id/search_rating_to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:text="до"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/search_year"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_rating_spinner_from" />
+
+            <Spinner
+                android:id="@+id/search_rating_spinner_from"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/search_file_rating"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/search_rating_from"
+                app:layout_constraintTop_toTopOf="@id/search_rating_from"/>
+
+            <Spinner
+                android:id="@+id/search_rating_spinner_to"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/search_file_rating"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/search_rating_to"
+                app:layout_constraintTop_toTopOf="@id/search_rating_to" />
+
+            <TextView
+                android:id="@+id/search_year"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:paddingStart="20dp"
+                android:text="Год"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/search_rating_spinner_to"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="231dp" />
+
+            <TextView
+                android:id="@+id/search_year_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:text="от"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/search_year_spinner_from"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/search_year_spinner_from" />
+
+            <EditText
+                android:id="@+id/search_year_spinner_from"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="2000"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/search_year_from"
+                app:layout_constraintTop_toBottomOf="@id/search_year" />
+
+            <TextView
+                android:id="@+id/search_year_to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:text="до"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/search_year_spinner_to"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_year_spinner_from" />
+
+            <EditText
+                android:id="@+id/search_year_spinner_to"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="2022"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/search_year_to"
+                app:layout_constraintTop_toBottomOf="@id/search_year_spinner_from" />
+
+            <Button
+                android:id="@+id/search_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Поиск"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_year_spinner_to"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+    <View
+        android:id="@+id/search_click_stub"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:layout_margin="50dp"
+        />
+    <ProgressBar
+        android:id="@+id/search_progress"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+</FrameLayout>

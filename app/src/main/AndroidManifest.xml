@@ -28,8 +28,10 @@
                 android:value="" />
         </activity>
 
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".SuccessfullRegistrationActivity" />
+        <activity android:name=".Presentation.search.SearchActivity" />
+        <activity android:name=".Presentation.registration.RegistrationActivity" />
+        <activity android:name=".Presentation.registration.SuccessfullRegistrationActivity" />
+        <activity android:name=".Presentation.details.FilmDetailActivity" />
 
     </application>
 

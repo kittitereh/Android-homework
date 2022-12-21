@@ -1,9 +1,12 @@
-package com.terekhovaekaterina.android_homework
+package com.terekhovaekaterina.android_homework.Presentation.registration
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import com.terekhovaekaterina.android_homework.Presentation.common.BaseActivity
+import com.terekhovaekaterina.android_homework.R
+
 
 
 class RegistrationActivity: BaseActivity() {
@@ -29,5 +32,6 @@ class RegistrationActivity: BaseActivity() {
             val intent = Intent(this, SuccessfullRegistrationActivity::class.java)
             startActivity(intent)
         }
+
     }
 }
