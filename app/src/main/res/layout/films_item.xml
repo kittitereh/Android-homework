@@ -7,7 +7,7 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/top_meme_name"
+        android:id="@+id/film_item_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
@@ -15,7 +15,7 @@
         tools:text="nyan_cat"/>
 
     <TextView
-        android:id="@+id/top_meme_year"
+        android:id="@+id/film_item_year"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"

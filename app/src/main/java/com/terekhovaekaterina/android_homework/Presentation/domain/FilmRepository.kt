@@ -1,11 +1,10 @@
 package com.terekhovaekaterina.android_homework.Presentation.domain
 
-import com.google.gson.annotations.SerializedName
-import com.terekhovaekaterina.android_homework.Presentation.entity.Item
+import com.terekhovaekaterina.android_homework.Presentation.entity.Film
 
 interface FilmRepository {
 
-    suspend fun getFilms(genre: FilmsGenres, country: Int = 1): List<Item>
+    suspend fun getFilms(genre: FilmsGenres, country: Int = 1, ratingFrom: Int =0, ratingTo: Int = 10, yearFrom: Int = 2022, yearTo: Int = 2022): List<Film>
 }
 
 enum class FilmsGenres(val genre: Int){
@@ -42,8 +41,9 @@ enum class FilmsGenres(val genre: Int){
     TALK_SHOW(32),
     CHILDREN(33);
 
-    companion object {
-        val genre: Int
+    companion object Genre{
+        var genre: Int = 1
+
         fun getByInt(genre: Int) = values().first { it.genre == genre }
     }
 }

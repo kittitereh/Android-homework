@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.7.20'
 }
 
 android {
@@ -59,7 +60,8 @@ dependencies {
 
     //noinspection GradleCompatible
     implementation 'com.android.support:design:28.0.0'
-    implementation 'com.github.d-max:spots-dialog:1.1@aar'
+    //implementation 'com.github.d-max:spots-dialog:1.1@aar'
+    //implemetation 'com.github.d-max:spots-dialog:1.1'
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1"
 
     implementation "com.squareup.retrofit2:retrofit:2.9.0"

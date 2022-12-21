@@ -1,15 +1,17 @@
 package com.terekhovaekaterina.android_homework.Presentation.entity
 
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class Item(
     @SerialName("countries")
-    val countries: List<Country?>?,
+    val countries: Int?,
     @SerialName("genres")
-    val genres: List<Genre?>?,
+    val genres: Int?,
     @SerialName("imdbId")
     val imdbId: String?,
     @SerialName("kinopoiskId")

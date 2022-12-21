@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 
-abstract class BaseActivity : AppCompatActivity(){
+abstract class BaseActivity : AppCompatActivity() {
 
-    private val tag :String
-        get() = this::class.qualifiedName?: ""
+    private val tag: String
+        get() = this::class.qualifiedName ?: ""
 
-    override fun onCreate(savedInstanceState: Bundle?){
-        Log.d(tag,"onCreate $savedInstanceState")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        Log.d(tag, "onCreate $savedInstanceState")
         super.onCreate(savedInstanceState)
     }
 
@@ -20,7 +20,7 @@ abstract class BaseActivity : AppCompatActivity(){
     }
 
     override fun onStart() {
-        Log.d(tag,"onStart")
+        Log.d(tag, "onStart")
         super.onStart()
     }
 
@@ -43,4 +43,7 @@ abstract class BaseActivity : AppCompatActivity(){
         Log.d(tag, "onDestroy")
         super.onDestroy()
     }
+
+
+
 }

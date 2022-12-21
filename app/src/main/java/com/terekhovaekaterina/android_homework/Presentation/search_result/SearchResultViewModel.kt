@@ -3,26 +3,35 @@ package com.terekhovaekaterina.android_homework.Presentation.search_result
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.terekhovaekaterina.android_homework.Presentation.common.SingleLiveEvent
+import com.terekhovaekaterina.android_homework.Presentation.data.local.Filma
+import com.terekhovaekaterina.android_homework.Presentation.domain.FilmRepository
+import com.terekhovaekaterina.android_homework.Presentation.domain.FilmsGenres
+import com.terekhovaekaterina.android_homework.Presentation.entity.Film
+import kotlinx.coroutines.launch
 
-class SearchResultViewModel(name: String) : ViewModel(){
+class SearchResultViewModel(
+    private val filmRepository: FilmRepository,
+) : ViewModel(){
 
-    private val _result = MutableLiveData(listOf(
-        Film("Zhozho1", 2020),
-        Film("Zhozho2", 2020),
-        Film("Zhozho3", 2020),
-        Film("Zhozho4", 2020),
-        Film("Zhozho5", 2020),
-    )
-    )
+    private val _films = MutableLiveData<List<Film>>()
 
-    val results: LiveData<List<Film>> = _result
+
+    val films: LiveData<List<Film>> = _films
 
     private val _openDetail = SingleLiveEvent<Film>()
     val openDetail: LiveData<Film> = _openDetail
 
-    fun onResultClicked(result:Film){
-        _openDetail.value = result
+    init {
+        viewModelScope.launch{
+            val films = filmRepository.getFilms(FilmsGenres.ACTION)
+            _films.value = films
+        }
+    }
+
+    fun onFilmClicked(film: Film){
+        _openDetail.value = film
 
     }
 }

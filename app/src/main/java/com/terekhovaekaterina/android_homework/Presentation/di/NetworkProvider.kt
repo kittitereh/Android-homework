@@ -12,7 +12,7 @@ import retrofit2.Retrofit
 import retrofit2.create
 import java.security.KeyStore.TrustedCertificateEntry
 
-class NetworkProvider {
+object NetworkProvider {
 
     private val FilmApi:FilmApi =
         Retrofit.Builder()
@@ -45,7 +45,6 @@ class NetworkProvider {
 }
 
 
-private fun Retrofit.Builder.addCallAdapterFactory(asConverterFactory: Converter.Factory) {
 
-}
+
 

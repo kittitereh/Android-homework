@@ -21,5 +21,6 @@
         <item>9</item>
         <item>10</item>
     </string-array>
+
     <string name = "search_year_from_more_than_to"> год до не может быть больше чем год от </string>>
 </resources>

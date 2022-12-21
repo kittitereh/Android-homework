@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import com.terekhovaekaterina.android_homework.Presentation.common.BaseActivity
-import com.terekhovaekaterina.android_homework.Presentation.search_result.Film
+import com.terekhovaekaterina.android_homework.Presentation.entity.Film
 import com.terekhovaekaterina.android_homework.R
 
 class FilmDetailActivity: BaseActivity() {
