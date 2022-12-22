@@ -4,10 +4,11 @@ import com.terekhovaekaterina.android_homework.Presentation.entity.Film
 
 interface FilmRepository {
 
-    suspend fun getFilms(genre: FilmsGenres, country: Int = 1, ratingFrom: Int =0, ratingTo: Int = 10, yearFrom: Int = 2022, yearTo: Int = 2022): List<Film>
+    suspend fun getFilms(countries: Int, genres: FilmsGenres,  order: String, type: String,
+                         ratingFrom: Int, ratingTo: Int, yearFrom: Int, yearTo: Int, page: Int): List<Film>
 }
 
-enum class FilmsGenres(val genre: Int){
+enum class FilmsGenres(val genres: Int){
     THRILLER(1),
     DRAMA(2),
     CRIME(3),
@@ -42,8 +43,8 @@ enum class FilmsGenres(val genre: Int){
     CHILDREN(33);
 
     companion object Genre{
-        var genre: Int = 1
+        var genres: Int = 1
 
-        fun getByInt(genre: Int) = values().first { it.genre == genre }
+        fun getByInt(genres: Int) = values().first { it.genres == genres }
     }
 }

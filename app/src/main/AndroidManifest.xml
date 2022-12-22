@@ -17,7 +17,7 @@
         tools:replace="allowBackup, label,android:appComponentFactory"
         android:appComponentFactory="Item">
         <activity
-            android:name=".Presentation.search_result.SearchResultActivity"
+            android:name=".Presentation.search.SearchActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Androidhomework.NoActionBar">

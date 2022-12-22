@@ -8,9 +8,19 @@ import com.terekhovaekaterina.android_homework.Presentation.entity.Film
 class FilmRepositoryImpl(
     private val filmApi:FilmApi,
 ): FilmRepository {
-
-    override suspend fun getFilms(genre: FilmsGenres, country: Int, ratingFrom: Int, ratingTo: Int, yearFrom: Int, yearTo: Int): List<Film> {
-        val response = filmApi.getFilms(FilmsGenres.Genre.genre, country, ratingFrom, ratingTo, yearFrom, yearTo)
+    
+    override suspend fun getFilms(
+        countries: Int,
+        genres: FilmsGenres,
+        order: String,
+        type: String,
+        ratingFrom: Int,
+        ratingTo: Int,
+        yearFrom: Int,
+        yearTo: Int,
+        page: Int
+    ): List<Film> {
+        val response = filmApi.getFilms()
         val filmItem = response.items
         return filmItem?.mapNotNull {
             Film(
@@ -19,5 +29,6 @@ class FilmRepositoryImpl(
                 posterUrl = it.posterUrl
             )
         }?: emptyList()
+    }
     }
 }

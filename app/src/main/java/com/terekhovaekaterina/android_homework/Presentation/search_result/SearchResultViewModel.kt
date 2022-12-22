@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.terekhovaekaterina.android_homework.Presentation.common.SingleLiveEvent
-import com.terekhovaekaterina.android_homework.Presentation.data.local.Filma
 import com.terekhovaekaterina.android_homework.Presentation.domain.FilmRepository
 import com.terekhovaekaterina.android_homework.Presentation.domain.FilmsGenres
 import com.terekhovaekaterina.android_homework.Presentation.entity.Film

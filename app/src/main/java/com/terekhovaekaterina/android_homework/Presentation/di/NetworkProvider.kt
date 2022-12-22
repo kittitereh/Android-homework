@@ -9,6 +9,7 @@ import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import retrofit2.Converter
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import java.security.KeyStore.TrustedCertificateEntry
 
@@ -43,6 +44,8 @@ object NetworkProvider {
     fun getFilmsRepository():FilmRepository =
         filmRepository ?: FilmRepositoryImpl(FilmApi).also {filmRepository = it}
 }
+
+
 
 
 

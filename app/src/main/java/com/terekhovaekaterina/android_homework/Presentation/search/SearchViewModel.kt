@@ -4,6 +4,7 @@ import android.media.Rating
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.terekhovaekaterina.android_homework.Presentation.common.SingleLiveEvent
 
 
 class SearchViewModel: ViewModel() {
@@ -11,7 +12,7 @@ class SearchViewModel: ViewModel() {
     private val _loading = MutableLiveData(false)
     val loading: LiveData<Boolean> = _loading
 
-    private val _errorMessage = MutableLiveData<SearchErrorType>()
+    private val _errorMessage = SingleLiveEvent<SearchErrorType>()
     val errorMessage: LiveData<SearchErrorType> = _errorMessage
 
     override fun onCleared() {
